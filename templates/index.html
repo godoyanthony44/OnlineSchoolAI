@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block class_home %}active{% endblock %}
+
+{% block content %}
+<div id="loading" class="d-flex align-items-center justify-content-center d-none">
+  <img src="{{ url_for('static', filename='giff.gif') }}" class="img-fluid w-75" alt="Loading...">
+</div>
+
+<div id="content" class="">
+  <h1 class="pt-3">The Homework Helper AI</h1>
+  <p class="lead">
+    Type your assignments requirements, be specific.
+  </p>
+  <form method="post" action="{{ url_for('submit') }}">
+    <div class="form-group container-sm">
+      <textarea class="form-control mt-5" name="textfield" id="FormControlTextarea" rows="10" autocomplete="off" onkeyup="checkWordCount(this)"></textarea>
+    </div>
+    <p class="lead">
+      <button type="submit" class="btn btn-lg btn-light fw-bold border-white bg-white mt-5" id="submitbutton" onclick="loading();" disabled>Submit</button>
+    </p>
+
+  </form>
+</div>
+
+<script>
+  function checkWordCount(textarea) {
+    var words = textarea.value.trim().split(/\s+/);
+    var wordCount = words.length;
+
+    if (wordCount >= 10) {
+      document.getElementById("submitbutton").disabled = false;
+    } else {
+      document.getElementById("submitbutton").disabled = true;
+    }
+  }
+</script>
+
+{% endblock %}
