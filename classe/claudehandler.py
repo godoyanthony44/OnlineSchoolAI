@@ -3,7 +3,7 @@ import json
 
 class Claude:
     def __init__(self):
-        self.api_key = 'Bearer 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'
+        self.api_key = 'API-KEY'
 
     def send_chat_message(self,message):
         endpoint = "https://api.openai.com/v1/chat/completions"
