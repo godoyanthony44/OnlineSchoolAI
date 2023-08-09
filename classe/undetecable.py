@@ -5,12 +5,12 @@ from time import sleep
 
 class Undetectable:
     def __init__(self):
-        self.api_key = '1687794215217x250146038102561760'
+        self.api_key = 'API_KEY'
 
     def send_message(self, message):
         url = "https://api.undetectable.ai/submit"
         headers = {
-            'api-key': '1687794215217x250146038102561760',
+            'api-key': self.api_key,
             'Content-Type': 'application/json'
         }
         payload = json.dumps({
